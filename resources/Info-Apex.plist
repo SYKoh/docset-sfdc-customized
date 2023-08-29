@@ -11,7 +11,7 @@
         <key>isDashDocset</key>
         <true/>
         <key>dashIndexFilePath</key>
-        <string>apexcode.html</string>
+        <string>apexref.html</string>
         <key>DashDocSetFallbackURL</key>
         <string>https://developer.salesforce.com/docs/</string>
     </dict>

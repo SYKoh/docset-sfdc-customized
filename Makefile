@@ -2,53 +2,54 @@
 default: all
 
 .PHONY: all
-all: package-apex package-vf package-lightning
+# all: package-apex package-vf package-lightning
+all: package-apex 
 
 
 .PHONY: run-apex
 run-apex: clean-index
-	go run ./SFDashC/*.go apexcode
+	go run ./SFDashC/*.go apexref
 
-.PHONY: run-vf
-run-vf: clean-index
-	go run ./SFDashC/*.go  pages
+# .PHONY: run-vf
+# run-vf: clean-index
+# 	go run ./SFDashC/*.go  pages
 
-.PHONY: run-lightning
-run-lightning: clean-index
-	go run ./SFDashC/*.go lightning
+# .PHONY: run-lightning
+# run-lightning: clean-index
+# 	go run ./SFDashC/*.go lightning
 
 .PHONY: package-apex
 package-apex: run-apex
-	./scripts/package-docset.sh apexcode
+	./scripts/package-docset.sh apexref
 
-.PHONY: package-vf
-package-vf: run-vf
-	./scripts/package-docset.sh pages
+# .PHONY: package-vf
+# package-vf: run-vf
+# 	./scripts/package-docset.sh pages
 
-.PHONY: package-lightning
-package-lightning: run-lightning
-	./scripts/package-docset.sh lightning
+# .PHONY: package-lightning
+# package-lightning: run-lightning
+# 	./scripts/package-docset.sh lightning
 
 .PHONY: archive-apex
 archive-apex: package-apex
-	./scripts/archive-docset.sh apexcode
+	./scripts/archive-docset.sh apexref
 
 ./archive/Salesforce_Apex: archive-apex
 
-.PHONY: archive-vf
-archive-vf: package-vf
-	./scripts/archive-docset.sh pages
+# .PHONY: archive-vf
+# archive-vf: package-vf
+# 	./scripts/archive-docset.sh pages
 
-./archive/Salesforce_Visualforce: archive-vf
+# ./archive/Salesforce_Visualforce: archive-vf
 
-.PHONY: archive-lightning
-./archive-lightning: package-lightning
-	./scripts/archive-docset.sh lightning
+# .PHONY: archive-lightning
+# ./archive-lightning: package-lightning
+# 	./scripts/archive-docset.sh lightning
 
-./archive/Salesforce_Lightning: archive-lightning
+# ./archive/Salesforce_Lightning: archive-lightning
 
 .PHONY: archive-all
-archive-all: archive-apex archive-vf # archive-lightning Lightning package isn't functional
+archive-all: archive-apex # archive-vf # archive-lightning Lightning package isn't functional
 
 ./archive: archive-all
 

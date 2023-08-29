@@ -35,7 +35,7 @@ function validate() {
 
 function read_version() {
     local apex_version
-    apex_version="$(cat ./build/apexcode-version.txt)"
+    apex_version="$(cat ./build/apexref-version.txt)"
     local pages_version
     pages_version="$(cat ./build/pages-version.txt)"
     local lightning_version

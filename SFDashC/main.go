@@ -33,8 +33,10 @@ func parseFlags() (locale string, deliverables []string, debug bool) {
 	flag.Parse()
 
 	// All other args are for deliverables
-	// apexcode, pages, or lightening
+	// apexref, pages, or lightening
 	deliverables = flag.Args()
+	println("HERE WE BEGIN")
+	fmt.Println(deliverables)
 	return
 }
 

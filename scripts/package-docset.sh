@@ -11,7 +11,7 @@ function get-friendly-name {
     local deliverable=$1
     local name="$(tr '[:lower:]' '[:upper:]' <<< ${deliverable:0:1})${deliverable:1}"
     case "$deliverable" in
-        "apexcode")
+        "apexref")
             name="Apex"
             ;;
         "pages")
